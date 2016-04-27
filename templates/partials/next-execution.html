@@ -1,0 +1,32 @@
+
+  <div class="next-inmate-box">
+        <span class="tk">NAME: {{ next_execution['Name'] }}</span>
+        will be executed
+        in
+        <span class="tk">X NUM OF DAYS {{ next_execution['Date'] }}</span>
+        by the state of
+        <span class="tk">STATE: {{ next_execution['State'] }}</span>.
+  </div>
+
+
+  <div class="next-state">
+    <p>
+      <span class="tk">
+        {{ next_state['name'] }}
+      </span>
+      has executed
+        <span class="tk">EXCOUNT {{ next_state['executions_count'] }}</span>
+      since
+        <span class="tk">LASTDATE {{ next_state['last_execution_date'] }}</span>
+    </p>
+
+
+    <p>
+      The last execution by
+      <span class="tk">{{ next_state['name'] }}</span>
+      was
+      <span class="tk">DAYS_SINCE_TODAY</span>, on
+      <span class="tk">DATE_OF_EXECUTION</span>.
+    </p>
+  </div>
+

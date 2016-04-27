@@ -1,0 +1,26 @@
+<table class="table table-condensed table-striped">
+  <thead>
+    <tr>
+      <th>State</th>
+      <th>Year of most recent execution</th>
+      <th>Past executions</th>
+      <th>Upcoming executions</th>
+    </tr>
+  </thead>
+
+
+  {% for state_abbrev, state_stats in state_execution_statistics.items() %}
+  <tr>
+    <td>{{ state_abbrev }}</td>
+    <td>{{ state_stats['last_execution_date'].strftime('%Y') }}</td>
+    <td>{{ state_stats['past_executions_count'] }}</td>
+
+    <td>
+      {{ state_stats['upcoming_executions_count'] }}
+
+    </td>
+  </tr>
+  {% endfor %}
+
+</table>
+

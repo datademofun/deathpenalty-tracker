@@ -1,0 +1,223 @@
+//UDMv3.8.2
+//* DO NOT EDIT THIS BIT *
+if (!exclude) { //********
+//************************
+
+
+
+///////////////////////////////////////////////////////////////////////////
+//
+//  ULTIMATE DROPDOWN MENU VERSION 3.8 by Brothercake
+//  http://www.brothercake.com/dropdown/ 
+//
+//  Link-wrapping routine by Brendan Armstrong
+//  Original KDE modifications by David Joham
+//  Opera reload/resize based on a routine by Michael Wallner
+//  Select-element hiding routine by Huy Do
+//
+///////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+// *** POSITIONING AND STYLES *********************************************
+
+
+
+var menuALIGN = "left";		// alignment mode
+var absLEFT = 	7;		// absolute left or right position (if menu is left or right aligned)
+var absTOP = 	115; 		// absolute top position
+
+var staticMENU = false;		// static positioning mode (win/ie5,ie6 and ns4 only)
+
+var stretchMENU = false;	// show empty cells
+var showBORDERS = false;	// show empty cell borders
+
+var baseHREF = "/resources/";	// base path
+var zORDER = 	1000;		// base z-order of nav structure
+
+var mCOLOR = 	"#ededed";	// main nav cell color
+var rCOLOR = 	"#dedede";	// main nav cell rollover color
+var bSIZE = 	1;		// main nav border size
+var bCOLOR = 	"#333333";	// main nav border color
+var aLINK = 	"#660000";	// main nav link color
+var aHOVER = 	"";		// main nav link hover-color (dual purpose)
+var aDEC = 	"none";		// main nav link decoration
+var fFONT = 	"helvetica";	// main nav font face
+var fSIZE = 	12;		// main nav font size (pixels)
+var fWEIGHT = 	"bold";		// main nav font weight
+var tINDENT = 	7;		// main nav text indent (if text is left or right aligned)
+var vPADDING = 	5;		// main nav vertical cell padding
+var vtOFFSET = 	0;		// main nav vertical text offset (+/- pixels from middle)
+
+var keepLIT =	true;		// keep rollover color when browsing menu
+var vOFFSET = 	0;		// shift the submenus vertically
+var hOFFSET = 	4;		// shift the submenus horizontally
+
+var smCOLOR = 	"#ededed";	// submenu cell color
+var srCOLOR = 	"#dedede";	// submenu cell rollover color
+var sbSIZE = 	1;		// submenu border size
+var sbCOLOR = 	"#333333";	// submenu border color
+var saLINK = 	"#3333aa";	// submenu link color
+var saHOVER = 	"#990000";	// submenu link hover-color (dual purpose)
+var saDEC = 	"none";		// submenu link decoration
+var sfFONT = 	"arial,helvetica,sans-serif";	// submenu font face
+var sfSIZE = 	11;		// submenu font size (pixels)
+var sfWEIGHT = 	"normal";	// submenu font weight
+var stINDENT = 	5;		// submenu text indent (if text is left or right aligned)
+var svPADDING = 1;		// submenu vertical cell padding
+var svtOFFSET = 0;		// submenu vertical text offset (+/- pixels from middle)
+
+var shSIZE =	2;		// submenu dropshadow size
+var shCOLOR =	"#bcbcbc";	// submenu dropshadow color
+var shOPACITY = 75;		// submenu dropshadow opacity (not ie4,ns4 or opera)
+
+var keepSubLIT = true;		// keep submenu rollover color when browsing child menu
+var chvOFFSET = -12;		// shift the child menus vertically
+var chhOFFSET = 7;		// shift the child menus horizontally
+
+var openTIMER = 100;		// menu opening delay time (not ns4/op5/op6)
+var openChildTIMER = 200;	// child-menu opening delay time (not ns4/op5/op6)
+var closeTIMER = 400;		// menu closing delay time
+
+var aCURSOR = "hand";		// cursor for active links (not ns4, op5 or op6)
+var altDISPLAY = "";		// where to display alt text
+var allowRESIZE = mu;		// allow resize/reload
+
+var redGRID = false;		// show a red grid
+var gridWIDTH = 760;		// override grid width
+var gridHEIGHT = 500;		// override grid height
+var documentWIDTH = 0;		// override document width
+
+var hideSELECT = false;		// auto-hide select boxes when menus open (ie only)
+var allowForSCALING = false;	// allow for text scaling in gecko browsers
+var allowPRINTING = false;	// allow the navbar and menus to print (not ns4)
+
+var arrWIDTH = 13;		//arrow width (not ns4/op5/op6)
+var arrHEIGHT = 13;		//arrow height (not ns4/op5/op6)
+
+var arrHOFFSET = -1;		//arrow horizontal offset (not ns4/op5/op6)
+var arrVOFFSET = -3;		//arrow vertical offset (not ns4/op5/op6)
+var arrVALIGN = "middle";	//arrow vertical align (not ns4/op5/op6)
+
+var arrLEFT = "<";		//left arrow (not ns4/op5/op6)
+var arrLEFT_ROLL = "";		//left rollover arrow (not ns4/op5/op6)
+var arrRIGHT = ">";		//right arrow (not ns4/op5/op6)
+var arrRIGHT_ROLL = "";		//right rollover arrow (not ns4/op5/op6)
+
+
+
+
+
+//** LINKS ***********************************************************
+
+MI("/","<span class='u'>H</span>ome",100,"center","","",0,0,"b","","","","");
+
+	SP(100,"left","center",0,-5,"","","","","","","");
+
+
+// add main link item ("url","Link name",width,"text-alignment","_target","alt text",top position,left position,"key trigger","mCOLOR","rCOLOR","aLINK","aHOVER")
+MI("/getcat.php?cid=3","<span class='u'>I</span>ssues",100,"center","","",0,0,"u","","","","");
+
+	// define submenu properties (width,"align to edge","text-alignment",v offset,h offset,"filter","smCOLOR","srCOLOR","sbCOLOR","shCOLOR","saLINK","saHOVER")
+	SP(100,"left","left",0,-5,"","","","","","","");
+
+	// add submenu link items ("url","Link name","_target","alt text")
+	SI("/article.php?did=1328","Arbitrariness","","");
+	SI("/article.php?did=126&scid=13","Clemency","","");
+	SI("/article.php?did=108&scid=7","Costs","","");
+	SI("/article.php?scid=12&did=167","Deterrence","","");
+	SI("/article.php?scid=29&did=147","Federal Death<br>Penalty","","");
+	SI("/article.php?did=198&scid=31","Foreign Nationals","","");
+	SI("/article.php?did=412&scid=6","Innocence","","");
+	SI("/article.php?did=127&scid=30","International","","");
+	SI("/article.php?did=205&scid=27","Juveniles","","");
+	SI("/article.php?did=555&scid=59","Life Without Parole","","");
+	SI("/article.php?did=782&scid=66","Mental Illness","","");
+	SI("/article.php?scid=28&did=176","Mental Retardation","","");
+	SI("/article.php?did=2646","Native Americans","","");
+	SI("/article.php?did=105&scid=5","Race","","");
+	SI("/article.php?did=896&scid=68","Representation","","");
+	SI("/article.php?did=180&scid=32","U.S. Military","","");
+	SI("/article.php?did=573&scid=62","Victims","","");
+	SI("/article.php?did=230&scid=24","Women","","");
+	SI("/article.php?scid=33&did=129","More Issues","","");
+	
+
+MI("/getcat.php?cid=5","<span class='u'>R</span>esources",100,"center","","",0,0,"b","","","","");
+
+	SP(100,"left","left",0,-5,"","","","","","","");
+
+	SI("/article.php?did=132&scid=17","Articles","","");
+	SI("/article.php?did=130&scid=20","Books","","");
+	SI("/article.php?did=557&scid=60","Death Penalty Quiz","","");
+	SI("/article.php?did=189&scid=43","Editorials","","");
+	SI("/article.php?did=549&scid=58","Educational<br>Curricula","","");
+	SI("/article.php?did=131&scid=21","Law Reviews","","");
+	SI("/article.php?did=142&scid=42","Multimedia","","");
+	SI("/article.php?did=482&scid=16","New Voices","","");
+	SI("/article.php?did=209&scid=23","Public Opinion","","");
+	SI("/article.php?did=547&scid=37","Related Web Sites","","");
+	SI("/article.php?did=2249","Religion","","");
+	SI("/article.php?did=1917","Student Resources","","");
+	SI("/article.php?did=220&scid=19","Studies","","");
+	SI("/article.php?did=415&scid=18","Testimony,<br>Resolutions,<br>Statements &<br> Speeches","","");
+	//SI("/article.php?did=558&scid=41","Upcoming Events","","");
+	
+
+MI("/getcat.php?cid=4","<span class='u'>F</span>acts",100,"center","","",0,0,"b","","","","");
+
+	SP(100,"left","left",0,-5,"","","","","","","");
+
+	SI("/article.php?did=144&scid=10","Crimes Punishable<br>by the Death<br>Penalty","","");
+	SI("/article.php?did=413&scid=9","Death Row","","");
+	SI("/article.php?did=1829","en Espanol","","");
+	SI("/article.php?did=414&scid=8","Executions","","");
+	SI("/article.php?did=199&scid=15","History of the<br>Death Penalty","","");
+	SI("/article.php?scid=12&did=169","Murder Rates","","");
+	SI("/article.php?did=236&scid=40","Recent<br>Legislative<br>Activity","","");
+	SI("/article.php?did=895&scid=67","Sentencing","","");
+	SI("/state/","State by State<br>Information","","");
+	SI("/article.php?did=248&scid=38","U.S. Supreme<br>Court","","");
+
+
+MI("/article.php?did=404&scid=45","<span class='u'>R</span>eports",100,"center","","",0,0,"b","","","","");
+
+	SP(100,"left","left",0,-5,"","","","","","","");
+
+
+MI("/article.php?did=405&scid=1","<span class='u'>P</span>ress",100,"center","","",0,0,"b","","","","");
+
+	SP(100,"left","left",0,-5,"","","","","","","");
+	
+MI("/article.php?scid=2&did=107","<span class='u'>C</span>ontact",100,"center","","",0,0,"b","","","","");
+
+	SP(100,"left","left",0,-5,"","","","","","","");
+	
+MI("/article.php?scid=69&did=933","<span class='u'>D</span>onate",100,"center","","",0,0,"b","","","","");
+
+
+
+
+
+
+
+
+
+
+
+//* DO NOT EDIT THIS BIT *
+}//***********************
+//************************
+
+jQuery(document).ready(function($){
+	$('.mobile-btn').click(function(){
+		$(this).next().toggleClass('active');
+	});
+	if($(window).width() < 1030){
+		$('.nice-menu > li > ul').prev().click(function(e){
+			return false;
+		});
+	}
+});

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Simple Death Penalty Tracker</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/bootstrap.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/mystyles.css')}}">
+</head>
+
+<body>
+
+    <header id="woz-header">
+      <div class="container">
+        <h1 class="title">A Simple Death Penalty Tracker</h1>
+      </div>
+    </header>
+
+    <div id="woz-content">
+      <div class="container">
+
+
+
+          <section class="statistics-box sec">
+              Hello!
+              Today is <strong class="today">{{today.strftime('%B %d, %Y')}}</strong>.
+              There are
+              <strong class="upcoming-count tk">{{upcoming_executions | length}}</strong>
+                executions scheduled.
+          </section>
+
+
+
+          <section class="sec" id="next-execution">
+              <h2>When is America's next execution?</h2>
+              {% include 'partials/next-execution.html' %}
+          </section>
+
+
+          <section class="sec" id="state-executions">
+              <h2>Execution numbers by state</h2>
+              {% include 'partials/state-aggregation.html' %}
+          </section>
+
+
+
+
+          <section class="sec tk" id="upcoming-executions">
+              <h2>List of upcoming executions</h2>
+              <p>
+                Try to clean this up. Make the date column more interesting.
+                And use regex, or what have you, to remove all inmates who
+                have received a stay.
+              </p>
+
+              {% include 'partials/upcoming-list.html' %}
+          </section>
+      </div>
+    </div>
+
+
+    <footer id="woz-footer">
+        <div class="container">
+          {% include 'partials/about-boilerplate.html' %}
+        </div>
+    </footer>
+
+
+</body>
+</html>

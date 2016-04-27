@@ -1,0 +1,33 @@
+
+
+.sec{
+  margin-bottom:2.5em;
+}
+
+
+
+header#woz-header{
+  margin-bottom: 2.0em;
+  text-align:center;
+  padding: 2.5em 0;
+  background: purple;
+}
+
+header#woz-header h1{
+  font-size: 3.7em;
+  font-weight: bold;
+  color: white;
+}
+
+
+
+footer#woz-footer{
+  margin-top: 2.0em;
+  border-top: 3px solid purple;
+  padding: 1.5em 0;
+}
+
+.tk{
+  padding: 3px;
+  border: 2px dashed hotpink;
+}
