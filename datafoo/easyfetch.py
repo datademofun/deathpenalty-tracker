@@ -1,11 +1,23 @@
+"""
+this easyfetch.py script exists so that you don't have to go into the
+scrapes/ folder, which contains really esoteric webscraping code.
 
-from datafoo.historical import extract_historical_executions
-from datafoo.historical import STASHED_URL as historical_stale_url
-from datafoo.historical import SOURCE_URL as historical_source_url
+To make this app, all you need to realize is that:
 
-from datafoo.upcoming import extract_upcoming_executions
-from datafoo.upcoming import STASHED_URL as upcoming_stale_url
-from datafoo.upcoming import SOURCE_URL as upcoming_source_url
+    easyfetch.historical_executions()
+    easyfetch.upcoming_executions()
+
+Returns the parsed data that you need
+"""
+
+
+from datafoo.scrapes.historical import extract_historical_executions
+from datafoo.scrapes.historical import STASHED_URL as historical_stale_url
+from datafoo.scrapes.historical import SOURCE_URL as historical_source_url
+
+from datafoo.scrapes.upcoming import extract_upcoming_executions
+from datafoo.scrapes.upcoming import STASHED_URL as upcoming_stale_url
+from datafoo.scrapes.upcoming import SOURCE_URL as upcoming_source_url
 import requests
 
 def historical_executions(refresh_data=False):
